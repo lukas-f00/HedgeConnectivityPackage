@@ -15,3 +15,14 @@ create_hex_grid <- function(swf_sf, cellsize) {
   hex_grid$hex_id <- rank(hex_grid$hex_id)
   return(hex_grid)
 }
+
+############################################################################################
+
+plot_hex_ids <- function(hex_grid) {
+  plot(st_geometry(hex_grid), border = "black", main = "Hexagon IDs")
+  text(st_coordinates(st_centroid(hex_grid)),
+       labels = hex_grid$hex_id,
+       cex = 0.7, col = "blue")
+}
+
+###########################################################################################
