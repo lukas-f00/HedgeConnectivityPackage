@@ -1,4 +1,3 @@
-
 # function 1
 load_swf_data <- function(path) {
   swf_raster <- raster(path)
@@ -62,6 +61,3 @@ plot_swf_hex <- function(hex_grid, swf_clipped, hex_id) {
   plot(st_geometry(selected_hex), border = "black", lwd = 2, main = paste("SWF in Hexagon", selected_hex$hex_id))
   plot(st_geometry(swf_clipped), col = "forestgreen", add = TRUE)
 }
-
-
-
