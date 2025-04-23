@@ -40,7 +40,7 @@ clip_swf_to_grid <- function(swf_sf, hex_grid) {
 
 # function 5
 plot_swf_grid <- function(hex_grid, swf_clipped) {
-  plot(st_geometry(hex_grid), border = "grey")
+  plot(st_geometry(hex_grid), border = "grey", main = "Hexagon grid over hedge data")
   plot(st_geometry(swf_clipped), col = "forestgreen", add = TRUE)
 }
 
@@ -58,6 +58,6 @@ clip_swf_to_hex <- function(swf_sf, hex_grid, hex_id) {
 # function 7
 plot_swf_hex <- function(hex_grid, swf_clipped, hex_id) {
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
-  plot(st_geometry(selected_hex), border = "black", lwd = 2, main = paste("SWF in Hexagon", selected_hex$hex_id))
+  plot(st_geometry(selected_hex), border = "black", lwd = 2, main = paste("Small Woody Features in Hexagon", selected_hex$hex_id))
   plot(st_geometry(swf_clipped), col = "forestgreen", add = TRUE)
 }
