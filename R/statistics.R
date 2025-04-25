@@ -9,7 +9,7 @@ hedge_area <- function(swf_clipped, hex_grid, hex_id) {
   # Calculating the area of the hexagon
   hex_area <- st_area(selected_hex)
 
-  # Calculating the ratio and percentage of the SWF area to the hexagon area
+  # Calculating the ratio and percentage of the SWF area to the hexagon area without units
   ratio <- as.numeric(hedge_area / hex_area)
   percentage <- ratio * 100
 
@@ -26,7 +26,8 @@ hedge_area <- function(swf_clipped, hex_grid, hex_id) {
 count_hedge_obj <- function(swf_clipped, hex_grid, hex_id) {
   # Selecting a specific hexagon
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
-  # Making geometries valid
+  # Making geometries valid to prevent errors and keep data clean
+  # Also clipping the data in case it wasn't done in a previous step
   swf_valid <- st_make_valid(swf_clipped)
   hex_valid <- st_make_valid(selected_hex)
   swf_in_hex <- st_intersection(swf_valid, hex_valid)
@@ -83,7 +84,7 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
   distances <- st_distance(random_points, st_boundary(merged_hedges))
   # Selecting only the points laying outside of the hedge objects
   outside_points <- !st_intersects(random_points, merged_hedges, sparse = FALSE)
-  # Converting the distances to numeric values
+  # Converting the distances to numeric values without units
   numeric_dist <- as.numeric(distances)
 
   # Storing the mean, minimum and maximum distances for points outside the hedges in a list
@@ -97,6 +98,7 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
   )
 
   # Printing the results
+  # Using cat() instead of print() because of multi-line strings
   cat(paste0(
     "Hexagon ", hex_id, ":\n",
     "Points outside of hedge objects:\n",
@@ -115,6 +117,7 @@ hedges_nn <- function(swf_clipped, hex_grid, hex_id, nn) {
   # Selecting a specific hexagon
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
   # Making geometries valid
+  # Also clipping the data in case it wasn't done in a previous step
   swf_in_hex <- st_intersection(st_make_valid(swf_clipped),
                                 st_make_valid(selected_hex))
   # Buffering the data to merge neighbouring patches together and removing the buffer afterwards
@@ -144,6 +147,7 @@ hedges_nn <- function(swf_clipped, hex_grid, hex_id, nn) {
   # Creating a matrix with the distances between every polygon
   dist_matrix <- st_distance(boundaries)
   dist_numeric <- matrix(as.numeric(dist_matrix), nrow = num_patches)
+  # Setting self-distance to NA instead of 0
   diag(dist_numeric) <- NA
 
   # For-loop to go through every distance and selecting the respectively shortest one
