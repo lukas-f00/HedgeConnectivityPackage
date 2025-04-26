@@ -1,10 +1,10 @@
 #' Function 10: Calculating the hedge area in one selected hexagon
 #'
-#' @param swf_clipped The clipped SWF data; created in function 4: swf_grid()
-#' @param hex_grid    The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id      The ID of the hexagon that should be selected
+#' @param swf_clipped An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param hex_grid    An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id      Numeric. ID of the selected hexagon
 #'
-#' @returns           The overall area of hedges/SWF in the selected hexagon as well as the percentage of it to the whole hexagon area gets printed
+#' @returns           A list with total hedge area and area ratio
 #' @export
 #'
 #' @examples          hedge_area("data_clip", "my_grid", "11")
@@ -34,11 +34,11 @@ hedge_area <- function(swf_clipped, hex_grid, hex_id) {
 
 #' Function 11: Counting the hedge/SWF objects in one selected hexagon
 #'
-#' @param swf_clipped The clipped SWF data; created in function 4: swf_grid()
-#' @param hex_grid    The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id      The ID of the hexagon that should be selected
+#' @param swf_clipped An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param hex_grid    An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id      Numeric. ID of the selected hexagon
 #'
-#' @returns           The number of hedge/SWF objects/patches gets printed
+#' @returns           Integer. Number of distinct hedge/SWF patches
 #' @export
 #'
 #' @examples          count_hedge_obj("data_clip", "my_grid", "11")
@@ -71,12 +71,12 @@ count_hedge_obj <- function(swf_clipped, hex_grid, hex_id) {
 
 #' Function 12: Calculating the percentage of the random points, that lay within hedge/SWF objects
 #'
-#' @param swf_clipped   The clipped SWF data; created in function 4: swf_grid()
-#' @param random_points The random points; created in function 8: random_points()
-#' @param hex_grid      The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id        The ID of the hexagon that should be selected
+#' @param swf_clipped   An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param random_points An `sf` object of random points; created in function 8: random_points()
+#' @param hex_grid      An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id        Numeric. ID of the selected hexagon
 #'
-#' @returns             The percentage of points within hedge/SWF objects gets printed
+#' @returns             Numeric. Percentage of random points inside hedge/SWF polygons
 #' @export
 #'
 #' @examples            hedge_point_percentage("data_clip", "my_points", "my_grid", "11")
@@ -101,12 +101,12 @@ hedge_points_percentage <- function(swf_clipped, random_points, hex_grid, hex_id
 
 #' Function 13: Calculating the mean, min, max distance from all points outside of hedge/SWF objects to the closest hedge/SWF object
 #'
-#' @param swf_clipped   The clipped SWF data; created in function 4: swf_grid()
-#' @param random_points The random points; created in function 8: random_points()
-#' @param hex_grid      The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id        The ID of the hexagon that should be selected
+#' @param swf_clipped   An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param random_points An `sf` object of random points; created in function 8: random_points()
+#' @param hex_grid      An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id        Numeric. ID of the selected hexagon
 #'
-#' @returns             The mean, min & max distance from all points outside of hedge/SWF objects in the selected hexagon to the closest hedge/SWF object get printed in a list
+#' @returns             A list with mean, min and max distances for points outside of hedges
 #' @export
 #'
 #' @examples            distance_to_nearest_hedge("data_clip", "my_points", "my_grid", "11")
@@ -158,12 +158,12 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
 
 #' Function 14: Calculating the mean, min & max distance from all hedge/SWF objects to their x nearest neighbour
 #'
-#' @param swf_clipped The clipped SWF data; created in function 4: swf_grid()
-#' @param hex_grid    The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id      The ID of the hexagon that should be selected
-#' @param nn          The nearest neighbour, to which the distances should be calculated
+#' @param swf_clipped An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param hex_grid    An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id      Numeric. ID of the selected hexagon
+#' @param nn          Numeric. Number of nearest neighbors to consider
 #'
-#' @returns           The mean, min & max distance from all hedge/SWF objects in the selected hexagon to the x nearest neighbour
+#' @returns           A list with mean, min, and max distances to the x nearest neighbor
 #' @export
 #'
 #' @examples          hedges_nn("data_clip", "my_grid", "11", "2")
