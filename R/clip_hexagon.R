@@ -1,8 +1,8 @@
 #' Function 1: Loading in the SWF data
 #'
-#' @param path The path to the SWF raster-file
+#' @param path Character. Path to the SWF raster file (.tif)
 #'
-#' @returns    The SWF raster-file, no visible output
+#' @returns    An `sf` object with hedge/SWF polygons
 #' @export
 #'
 #' @examples   load_swf_data("your/individual/path/file.tif")
@@ -21,10 +21,10 @@ load_swf_data <- function(path) {
 
 #' Function 2: Creating a hexagon grid
 #'
-#' @param swf_sf   The SWF data as sf-polygons; created in function 1: load_swf_data()
-#' @param diameter Diameter of the polygons in the respective unit; freely selectable
+#' @param swf_sf   An `sf` object of SWF polygons; created in function 1: load_swf_data()
+#' @param diameter Numeric. Diameter of the hexagons in map units (e.g., meters)
 #'
-#' @returns        A hexagon-grid with the chosen diameter is created
+#' @returns        An `sf` object containing the hexagon grid with assigned IDs
 #' @export
 #'
 #' @examples      create_hex_grid("my_data", "500")
@@ -48,9 +48,9 @@ create_hex_grid <- function(swf_sf, diameter) {
 
 #' Function 3: Plotting the hexagon grid with IDs
 #'
-#' @param hex_grid The created hexagon grid; created in function 2: create_hex_grid()
+#' @param hex_grid An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
 #'
-#' @returns        A plot of the hexagon grid with the according IDs is plotted
+#' @returns        An plot showing the hexagons labeled by ID
 #' @export
 #'
 #' @examples       plot_hex_ids("my_grid")
@@ -69,10 +69,10 @@ plot_hex_ids <- function(hex_grid) {
 
 #' Function 4: Clipping the whole SWF data with the hexagon grid
 #'
-#' @param swf_sf   The SWF data as sf-polygons; created in function 1: load_swf_data()
-#' @param hex_grid The hexagon grid; created in function 2: create_hex_grid()
+#' @param swf_sf   An `sf` object of SWF polygons; created in function 1: load_swf_data()
+#' @param hex_grid An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
 #'
-#' @returns        The SWF data gets clipped with the hexagon grid; no visible output
+#' @returns        An `sf` object of clipped SWF data
 #' @export
 #'
 #' @examples       swf_grid("my_data", "my_grid")
@@ -89,10 +89,10 @@ swf_grid <- function(swf_sf, hex_grid) {
 
 #' Function 5: Plotting the whole clipped SWF data with the hexagon grid
 #'
-#' @param hex_grid    The hexagon grid; created in function 2: create_hex_grid()
-#' @param swf_clipped The clipped SWF data; created in function 4: swf_grid()
+#' @param hex_grid    An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param swf_clipped An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
 #'
-#' @returns           The clipped SWF data together with the hexagon grid gets plotted
+#' @returns           A plot showing the SWF data and hexagon grid
 #' @export
 #'
 #' @examples          plot_swf_grid("my_grid", "data_clip")
@@ -109,11 +109,11 @@ plot_swf_grid <- function(hex_grid, swf_clipped) {
 
 #' Function 6: Clipping the SWF data to the extent of one selected hexagon
 #'
-#' @param swf_sf   The SWF data as sf-polygons; created in function 1: load_swf_data()
-#' @param hex_grid The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id   The ID of the hexagon that should be selected
+#' @param swf_sf   An `sf` object of SWF polygons; created in function 1: load_swf_data()
+#' @param hex_grid An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id   Numeric. ID of the selected hexagon
 #'
-#' @returns        The SWF data gets clipped to the extent of one selected hexagon
+#' @returns        An `sf` object of SWF polygons inside the selected hexagon
 #' @export
 #'
 #' @examples       clip_swf_to_hex("my_data", "my_grid", "11")
@@ -131,11 +131,11 @@ clip_swf_to_hex <- function(swf_sf, hex_grid, hex_id) {
 
 #' Function 7: Plotting the clipped SWF data with the corresponding hexagon
 #'
-#' @param hex_grid    The hexagon grid; created in function 2: create_hex_grid()
-#' @param swf_clipped The clipped SWF data; created in function 4: swf_grid()
-#' @param hex_id      The ID of the hexagon that should be selected
+#' @param hex_grid    An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param swf_clipped An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param hex_id      Numeric. ID of the selected hexagon
 #'
-#' @returns           The SWF data clipped to the extent of one selected hexagon gets plotted together with the hexagon boarders
+#' @returns           A plot showing the SWF polygons inside a hexagon
 #' @export
 #'
 #' @examples          plot_swf_hex("my_grid", "data_clip", "11")
