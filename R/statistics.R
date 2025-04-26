@@ -16,9 +16,9 @@ hedge_area <- function(swf_clipped, hex_grid, hex_id) {
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
 
   # Calculating the total area of the clipped SWF data
-  hedge_area <- sum(st_area(swf_clipped))
+  hedge_area <- sum(sf::st_area(swf_clipped))
   # Calculating the area of the hexagon
-  hex_area <- st_area(selected_hex)
+  hex_area <- sf::st_area(selected_hex)
 
   # Calculating the ratio and percentage of the SWF area to the hexagon area without units
   ratio <- as.numeric(hedge_area / hex_area)
@@ -50,16 +50,16 @@ count_hedge_obj <- function(swf_clipped, hex_grid, hex_id) {
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
   # Making geometries valid to prevent errors and keep data clean
   # Also clipping the data in case it wasn't done in a previous step
-  swf_valid <- st_make_valid(swf_clipped)
-  hex_valid <- st_make_valid(selected_hex)
-  swf_in_hex <- st_intersection(swf_valid, hex_valid)
+  swf_valid <- sf::st_make_valid(swf_clipped)
+  hex_valid <- sf::st_make_valid(selected_hex)
+  swf_in_hex <- sf::st_intersection(swf_valid, hex_valid)
 
   # Buffering the data to merge neighbouring patches together and removing the buffer afterwards
   # Did not work without the buffer
-  buffered <- st_buffer(swf_in_hex, 0.01)
-  dissolved <- st_union(buffered)
-  dissolved <- st_buffer(dissolved, -0.01)
-  patches <- st_cast(dissolved, "POLYGON")
+  buffered <- sf::st_buffer(swf_in_hex, 0.01)
+  dissolved <- sf::st_union(buffered)
+  dissolved <- sf::st_buffer(dissolved, -0.01)
+  patches <- sf::st_cast(dissolved, "POLYGON")
 
   # Counting the patches and printing the result
   patch_count <- length(patches)
@@ -88,7 +88,7 @@ hedge_points_percentage <- function(swf_clipped, random_points, hex_grid, hex_id
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
 
   # Getting the points INSIDE of hedge objects
-  inside_points <- st_intersects(random_points, swf_clipped, sparse = FALSE)
+  inside_points <- sf::st_intersects(random_points, swf_clipped, sparse = FALSE)
 
   # Calculating and printing the ratio and percentage of points inside of hedge objects to all points
   ratio <- sum(inside_points) / nrow(random_points)
@@ -117,7 +117,7 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
   # Selecting a specific hexagon
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
   # Making geometries valid
-  merged_hedges <- st_union(st_make_valid(swf_clipped))
+  merged_hedges <- sf::st_union(sf::st_make_valid(swf_clipped))
 
   # If-loop for areas with 0 hedge objects
   if (length(merged_hedges) == 0) {
@@ -126,9 +126,9 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
   }
 
   # Calculating the distances from the random points to the nearest hedge boundary
-  distances <- st_distance(random_points, st_boundary(merged_hedges))
+  distances <- sf::st_distance(random_points, sf::st_boundary(merged_hedges))
   # Selecting only the points laying outside of the hedge objects
-  outside_points <- !st_intersects(random_points, merged_hedges, sparse = FALSE)
+  outside_points <- !sf::st_intersects(random_points, merged_hedges, sparse = FALSE)
   # Converting the distances to numeric values without units
   numeric_dist <- as.numeric(distances)
 
@@ -175,14 +175,14 @@ hedges_nn <- function(swf_clipped, hex_grid, hex_id, nn) {
   selected_hex <- hex_grid[hex_grid$hex_id == hex_id, ]
   # Making geometries valid
   # Also clipping the data in case it wasn't done in a previous step
-  swf_in_hex <- st_intersection(st_make_valid(swf_clipped),
-                                st_make_valid(selected_hex))
+  swf_in_hex <- sf::st_intersection(sf::st_make_valid(swf_clipped),
+                                    sf::st_make_valid(selected_hex))
   # Buffering the data to merge neighbouring patches together and removing the buffer afterwards
   # Did not work without the buffer
-  buffered <- st_buffer(swf_in_hex, 0.01)
-  dissolved <- st_union(buffered)
-  dissolved <- st_buffer(dissolved, -0.01)
-  patches <- st_cast(dissolved, "POLYGON")
+  buffered <- sf::st_buffer(swf_in_hex, 0.01)
+  dissolved <- sf::st_union(buffered)
+  dissolved <- sf::st_buffer(dissolved, -0.01)
+  patches <- sf::st_cast(dissolved, "POLYGON")
 
   # Getting the number of patches
   num_patches <- length(patches)
@@ -200,9 +200,9 @@ hedges_nn <- function(swf_clipped, hex_grid, hex_id, nn) {
   }
 
   # Creating a line at the edge of the polygons for measuring the distances
-  boundaries <- st_boundary(patches)
+  boundaries <- sf::st_boundary(patches)
   # Creating a matrix with the distances between every polygon
-  dist_matrix <- st_distance(boundaries)
+  dist_matrix <- sf::st_distance(boundaries)
   dist_numeric <- matrix(as.numeric(dist_matrix), nrow = num_patches)
   # Setting self-distance to NA instead of 0
   diag(dist_numeric) <- NA
