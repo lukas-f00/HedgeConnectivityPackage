@@ -7,12 +7,12 @@
 swf_grid(swf_sf, hex_grid)
 }
 \arguments{
-\item{swf_sf}{The SWF data as sf-polygons; created in function 1: load_swf_data()}
+\item{swf_sf}{An \code{sf} object of SWF polygons; created in function 1: load_swf_data()}
 
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{   The SWF data gets clipped with the hexagon grid; no visible output
+\if{html}{\out{<div class="sourceCode">}}\preformatted{   An `sf` object of clipped SWF data
 }\if{html}{\out{</div>}}
 }
 \description{

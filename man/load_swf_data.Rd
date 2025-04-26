@@ -7,10 +7,10 @@
 load_swf_data(path)
 }
 \arguments{
-\item{path}{The path to the SWF raster-file}
+\item{path}{Character. Path to the SWF raster file (.tif)}
 }
 \value{
-The SWF raster-file, no visible output
+An \code{sf} object with hedge/SWF polygons
 }
 \description{
 Function 1: Loading in the SWF data

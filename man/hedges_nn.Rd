@@ -7,16 +7,16 @@
 hedges_nn(swf_clipped, hex_grid, hex_id, nn)
 }
 \arguments{
-\item{swf_clipped}{The clipped SWF data; created in function 4: swf_grid()}
+\item{swf_clipped}{An \code{sf} object of clipped SWF polygons; created in function 4: swf_grid()}
 
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{hex_id}{The ID of the hexagon that should be selected}
+\item{hex_id}{Numeric. ID of the selected hexagon}
 
-\item{nn}{The nearest neighbour, to which the distances should be calculated}
+\item{nn}{Numeric. Number of nearest neighbors to consider}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{      The mean, min & max distance from all hedge/SWF objects in the selected hexagon to the x nearest neighbour
+\if{html}{\out{<div class="sourceCode">}}\preformatted{      A list with mean, min, and max distances to the x nearest neighbor
 }\if{html}{\out{</div>}}
 }
 \description{

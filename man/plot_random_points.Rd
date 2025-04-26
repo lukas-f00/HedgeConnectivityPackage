@@ -7,16 +7,16 @@
 plot_random_points(hex_grid, swf_clipped, hex_id, random_points)
 }
 \arguments{
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{swf_clipped}{The clipped SWF data; created in function 4: swf_grid()}
+\item{swf_clipped}{An \code{sf} object of clipped SWF polygons; created in function 4: swf_grid()}
 
-\item{hex_id}{The ID of the hexagon that should be selected}
+\item{hex_id}{Numeric. ID of the selected hexagon}
 
-\item{random_points}{The random points; created in function 8: random_points()}
+\item{random_points}{An \code{sf} object of random points; created in function 8: random_points()}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{        The random points get plotted over the selected SWF data clip
+\if{html}{\out{<div class="sourceCode">}}\preformatted{        A plot showing random points over clipped SWF polygons
 }\if{html}{\out{</div>}}
 }
 \description{

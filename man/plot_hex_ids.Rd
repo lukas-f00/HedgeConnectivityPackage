@@ -7,10 +7,10 @@
 plot_hex_ids(hex_grid)
 }
 \arguments{
-\item{hex_grid}{The created hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{   A plot of the hexagon grid with the according IDs is plotted
+\if{html}{\out{<div class="sourceCode">}}\preformatted{   An plot showing the hexagons labeled by ID
 }\if{html}{\out{</div>}}
 }
 \description{

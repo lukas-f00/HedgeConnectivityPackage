@@ -7,12 +7,12 @@
 plot_swf_grid(hex_grid, swf_clipped)
 }
 \arguments{
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{swf_clipped}{The clipped SWF data; created in function 4: swf_grid()}
+\item{swf_clipped}{An \code{sf} object of clipped SWF polygons; created in function 4: swf_grid()}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{      The clipped SWF data together with the hexagon grid gets plotted
+\if{html}{\out{<div class="sourceCode">}}\preformatted{      A plot showing the SWF data and hexagon grid
 }\if{html}{\out{</div>}}
 }
 \description{

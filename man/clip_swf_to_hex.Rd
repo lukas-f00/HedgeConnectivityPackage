@@ -7,14 +7,14 @@
 clip_swf_to_hex(swf_sf, hex_grid, hex_id)
 }
 \arguments{
-\item{swf_sf}{The SWF data as sf-polygons; created in function 1: load_swf_data()}
+\item{swf_sf}{An \code{sf} object of SWF polygons; created in function 1: load_swf_data()}
 
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{hex_id}{The ID of the hexagon that should be selected}
+\item{hex_id}{Numeric. ID of the selected hexagon}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{   The SWF data gets clipped to the extent of one selected hexagon
+\if{html}{\out{<div class="sourceCode">}}\preformatted{   An `sf` object of SWF polygons inside the selected hexagon
 }\if{html}{\out{</div>}}
 }
 \description{

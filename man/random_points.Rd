@@ -7,14 +7,14 @@
 random_points(hex_grid, hex_id, n_points)
 }
 \arguments{
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{hex_id}{The ID of the hexagon that should be selected}
+\item{hex_id}{Numeric. ID of the selected hexagon}
 
-\item{n_points}{The number of random points}
+\item{n_points}{Numeric. Number of random points}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{   Random points over the extent of the selected hexagon are created
+\if{html}{\out{<div class="sourceCode">}}\preformatted{   An `sf` object of random points
 }\if{html}{\out{</div>}}
 }
 \description{

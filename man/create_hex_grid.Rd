@@ -7,12 +7,12 @@
 create_hex_grid(swf_sf, diameter)
 }
 \arguments{
-\item{swf_sf}{The SWF data as sf-polygons; created in function 1: load_swf_data()}
+\item{swf_sf}{An \code{sf} object of SWF polygons; created in function 1: load_swf_data()}
 
-\item{diameter}{Diameter of the polygons in the respective unit; freely selectable}
+\item{diameter}{Numeric. Diameter of the hexagons in map units (e.g., meters)}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{   A hexagon-grid with the chosen diameter is created
+\if{html}{\out{<div class="sourceCode">}}\preformatted{   An `sf` object containing the hexagon grid with assigned IDs
 }\if{html}{\out{</div>}}
 }
 \description{

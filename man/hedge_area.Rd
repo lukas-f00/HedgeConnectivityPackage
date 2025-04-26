@@ -7,14 +7,14 @@
 hedge_area(swf_clipped, hex_grid, hex_id)
 }
 \arguments{
-\item{swf_clipped}{The clipped SWF data; created in function 4: swf_grid()}
+\item{swf_clipped}{An \code{sf} object of clipped SWF polygons; created in function 4: swf_grid()}
 
-\item{hex_grid}{The hexagon grid; created in function 2: create_hex_grid()}
+\item{hex_grid}{An \code{sf} object of hexagons with assigned IDs; created in function 2: create_hex_grid()}
 
-\item{hex_id}{The ID of the hexagon that should be selected}
+\item{hex_id}{Numeric. ID of the selected hexagon}
 }
 \value{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{      The overall area of hedges/SWF in the selected hexagon as well as the percentage of it to the whole hexagon area gets printed
+\if{html}{\out{<div class="sourceCode">}}\preformatted{      A list with total hedge area and area ratio
 }\if{html}{\out{</div>}}
 }
 \description{
