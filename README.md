@@ -168,36 +168,33 @@ distance between hedge patches to their x nearest neighbors
 #hedges_nn(hex_grid, swf_hex, hex_id = 11, nn = 3)
 ```
 
-# Planned Extensions and Revisions
+## Planned Extensions and Revisions
 
-Revisions \| **Idea** \| **Example** \| \| ——————- \| —————– \| \|
-Tidying up the functions overall \| i.e. shortening function names or
-making the code cleaner \| \| Updating the plots with ggplot2 and more
-options to customize \| i.e. change color or font size \| \| Making the
-plots more barrier-free for people with color blindness or similar
-restrictions \| i.e. with help of the colorblindr package \| \| Function
-1 load_swf_data() \| Add option for vector data \| \| Function 13
-distance_to_nearest_hedge() \| Include points within hedges \| \|
-Function 13 distance_to_nearest_hedge() \| Split their distances further
-into “total distance” and “distance outside of hedges” \|
+## Revisions
 
-Extensions \| **Idea** \| **Example/Annotation** \| \| ——————- \| —————–
-\| \| Function hedge_chain() \| Adds up the distances from one hedge to
-the nearest neighbour. Then from this hedge to the next nearest
-hedge-object, that is not yet connected. So basically the shortest
-distance to connect all hedges. \| \| Function: isolated_hedges() \|
-Gives out a table, where the hedge objects are ranked by the number for
-how many other hedge objects they are the nearest neighbour. \| \|
-Function nearest_hedge_ranking() \| Gives out a table, where the hedge
-objects are ranked by the number for how many random points they are the
-nearest hedge. \| \| Function points_nn() \| Computes the distances
-(mean, min, max)(total and outside of hedges) for the random points to
-get to the x nearest neighbour. \| \| Overall functions \| Creating
-functions for hedges that are spread over multiple hexagons \| \|
-Overall functions \| Creating functions for the whole dataset and not
-only for the polygons \| \| Overall connectivity index for hedges \| But
-only if feasable and sensible \| \| Integrating other packages \|
-i.e. landscapemetrcis \| \| Integrating tests \| i.e. with testthis() \|
+| **Idea** | **Example** |
+|----|----|
+| Tidying up the functions overall | i.e. shortening function names or making the code cleaner |
+| Updating the plots with ggplot2 and more options to customize | i.e. change color or font size |
+| Making the plots more barrier-free for people with color blindness or similar restrictions | i.e. with help of the colorblindr package |
+| Function 1: load_swf_data() | Add option for vector data |
+| Function 13: distance_to_nearest_hedge() | Include points within hedges |
+| Function 13: distance_to_nearest_hedge() | Split their distances further into “total distance” and “distance outside of hedges” |
+
+## Extensions
+
+|  | **Explanation** |
+|----|----|
+| Function: hedge_chain() | Adds up the distances from one hedge to the nearest neighbour. Then from this hedge to the next nearest hedge-object, that is not yet connected. So basically the shortest distance to connect all hedges. |
+| Function: isolated_hedges() | Gives out a table, where the hedge objects are ranked by the number for how many other hedge objects they are the nearest neighbour. |
+| Function: nearest_hedge_ranking() | Gives out a table, where the hedge objects are ranked by the number for how many random points they are the nearest hedge. |
+| Function: points_nn() | Computes the distances (mean, min, max)(total and outside of hedges) for the random points to get to the x nearest neighbour. |
+| Overall functions | Creating functions for hedges that are spread over multiple hexagons |
+| Overall functions | Creating functions for the whole dataset and not only for the polygons |
+| Overall connectivity index for hedges | But only if feasible and sensible |
+| Conclusive Index | Creating a overall connectivity index for hedges (but only if feasible and sensible) |
+| Other packages | Integrating other packages (i.e. landscapemetrcis) |
+| Tests | Integrating tests (i.e. with testthis()) |
 
 Thank you for using the HedgeConnectivityPackage! If you find a bug or
 want to suggest an improvement, feel free to open an issue or pull
