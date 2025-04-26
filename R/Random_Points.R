@@ -1,10 +1,10 @@
 #' Function 8: Creating random points
 #'
-#' @param hex_grid The hexagon grid; created in function 2: create_hex_grid()
-#' @param hex_id   The ID of the hexagon that should be selected
-#' @param n_points The number of random points
+#' @param hex_grid An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param hex_id   Numeric. ID of the selected hexagon
+#' @param n_points Numeric. Number of random points
 #'
-#' @returns        Random points over the extent of the selected hexagon are created
+#' @returns        An `sf` object of random points
 #' @export
 #'
 #' @examples       random_points("my_grid", "11", "20")
@@ -23,12 +23,12 @@ random_points <- function(hex_grid, hex_id, n_points) {
 
 #' Function 9: Plotting random points over clipped SWF data
 #'
-#' @param hex_grid      The hexagon grid; created in function 2: create_hex_grid()
-#' @param swf_clipped   The clipped SWF data; created in function 4: swf_grid()
-#' @param hex_id        The ID of the hexagon that should be selected
-#' @param random_points The random points; created in function 8: random_points()
+#' @param hex_grid      An `sf` object of hexagons with assigned IDs; created in function 2: create_hex_grid()
+#' @param swf_clipped   An `sf` object of clipped SWF polygons; created in function 4: swf_grid()
+#' @param hex_id        Numeric. ID of the selected hexagon
+#' @param random_points An `sf` object of random points; created in function 8: random_points()
 #'
-#' @returns             The random points get plotted over the selected SWF data clip
+#' @returns             A plot showing random points over clipped SWF polygons
 #' @export
 #'
 #' @examples            plot_random_points("my_grid", "data_clip", "11", "my_points")
