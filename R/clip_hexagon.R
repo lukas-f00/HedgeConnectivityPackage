@@ -37,7 +37,7 @@ create_hex_grid <- function(swf_sf, diameter) {
   hex_grid <- sf::st_sf(geometry = hex_grid)
 
   # getting the coordinates of the centroids
-  coords <- sf::st_coordinates(st_centroid(hex_grid))
+  coords <- sf::st_coordinates(sf::st_centroid(hex_grid))
   # Assingning a ID to each hexagon and ranking them in consecutive order
   hex_grid$hex_id <- rank(-coords[,2]) * 1e6 + rank(coords[,1])
   hex_grid$hex_id <- rank(hex_grid$hex_id)
