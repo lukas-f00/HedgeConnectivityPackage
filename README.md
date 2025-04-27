@@ -73,9 +73,9 @@ to an sf-polygon object.
 
 ``` r
 
-# library(HedgeConnectivityPackage)
+library(HedgeConnectivityPackage)
 
-# swf <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif.tif", 3035)
+swf <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
 ```
 
 Now you can create a hexagon grid with a selectable diameter,
@@ -83,7 +83,7 @@ consecutive IDs and the extent of your data.
 
 ``` r
 
-# hex_grid <- create_hex_grid(swf, diameter = 500)
+hex_grid <- create_hex_grid(swf, diameter = 500)
 ```
 
 If you want to inspect your grid and check for the IDs, you can plot the
@@ -91,14 +91,17 @@ grid with the according IDs.
 
 ``` r
 
-# plot_hex_ids(hex_grid)
+plot_hex_ids(hex_grid)
+#> Warning: st_centroid assumes attributes are constant over geometries
 ```
+
+<img src="man/figures/README-hexagon grid plot-1.png" width="100%" />
 
 If you’re happy with the grid, you can then clip your data with it.
 
 ``` r
 
-# swf_clipped <- swf_grid(swf, hex_grid)
+swf_clipped <- swf_grid(swf, hex_grid)
 ```
 
 To see the outcome of your clip, you can plot your clipped data together
@@ -106,14 +109,18 @@ with the grid.
 
 ``` r
 
-# plot_swf_grid(hex_grid, swf_clipped)
+plot_swf_grid(hex_grid, swf_clipped)
 ```
+
+<img src="man/figures/README-grid clip plot-1.png" width="100%" />
 
 Now you can select a individual hexagon to analyze and work with.
 
 ``` r
 
-# swf_hex <- clip_swf_to_hex(swf, hex_grid, hex_id = 11)
+swf_hex <- clip_swf_to_hex(swf, hex_grid, hex_id = 11)
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
 ```
 
 To check and investigate your chosen hexagon and the clipped data in it,
@@ -121,15 +128,17 @@ you can plot it now.
 
 ``` r
 
-# plot_swf_hex(hex_grid, swf_hex, hex_id = 11)
+plot_swf_hex(hex_grid, swf_hex, hex_id = 11)
 ```
+
+<img src="man/figures/README-plot hexagon-1.png" width="100%" />
 
 For more statistical analysis, you can create random points over one
 selected hexagon.
 
 ``` r
 
-# random_pts <- random_points(hex_grid, hex_id = 11, n_points = 20)
+random_pts <- random_points(hex_grid, hex_id = 11, n_points = 20)
 ```
 
 You can also visualize your created random points together with your
@@ -137,15 +146,24 @@ hexagon and data.
 
 ``` r
 
-# plot_random_points(hex_grid, swf_hex, hex_id = 11, random_pts)
+plot_random_points(hex_grid, swf_hex, hex_id = 11, random_pts)
 ```
+
+<img src="man/figures/README-plot random points-1.png" width="100%" />
 
 For the statistical side of thing, you can start by calculating the
 hedge area in total area and as percantage towards the hexagon area.
 
 ``` r
 
-# hedge_area(swf_hex, hex_grid, hex_id = 11)
+hedge_area(swf_hex, hex_grid, hex_id = 11)
+#> [1] "Hexagon 11 hedge area: 28284.25 m2"
+#> [1] "Hexagon 11 hedge area percentage: 13.06%"
+#> $hedge_area
+#> 28284.25 [m^2]
+#> 
+#> $ratio
+#> [1] 0.1306394
 ```
 
 After this you can calculate the number of hedge/SWF objects in your
@@ -153,7 +171,11 @@ polygon.
 
 ``` r
 
-# count_hedge_obj(swf_hex, hex_grid, hex_id = 11)
+count_hedge_obj(swf_hex, hex_grid, hex_id = 11)
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
+#> [1] "Hexagon 11 contains 6 distinct hedge objects"
+#> [1] 6
 ```
 
 You can now use the crated random points for some analysis. With the
@@ -162,7 +184,9 @@ that fall within hedge objects.
 
 ``` r
 
-# hedge_points_percentage(swf_hex, random_pts, hex_grid, hex_id = 11)
+hedge_points_percentage(swf_hex, random_pts, hex_grid, hex_id = 11)
+#> [1] "Hexagon 11 percentage of points within hedge objects: 5 %"
+#> [1] 0.05
 ```
 
 You now know how many points lay outside of the hedges. Following this,
@@ -171,7 +195,32 @@ points to the nearest hedge.
 
 ``` r
 
-# distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
+distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
+#> Hexagon 11:
+#> Points outside of hedge objects:
+#>   Avg. distance to closest hedge: 76.47 m
+#>   Min. distance to closest hedge: 2.37 m
+#>   Max. distance to closest hedge: 173.81 m
+#> $outside_points
+#> $outside_points$mean
+#> [1] 76.47261
+#> 
+#> $outside_points$min
+#> [1] 2.369802
+#> 
+#> $outside_points$max
+#> [1] 173.8084
+#> 
+#> 
+#> $units
+#> $numerator
+#> [1] "m"
+#> 
+#> $denominator
+#> character(0)
+#> 
+#> attr(,"class")
+#> [1] "symbolic_units"
 ```
 
 And, focusing back on the hedges, you can calculate the mean, min, max
@@ -179,7 +228,31 @@ distance between hedge patches to their x nearest neighbors
 
 ``` r
 
-# hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
+hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
+#> Hexagon 11 (3. NN):
+#> Mean distance: 63.52 m
+#> Min. distance: 0.35 m
+#> Max. distance: 233.77 m
+#> $mean
+#> [1] 63.52149
+#> 
+#> $min
+#> [1] 0.3491763
+#> 
+#> $max
+#> [1] 233.7734
+#> 
+#> $units
+#> $numerator
+#> [1] "m"
+#> 
+#> $denominator
+#> character(0)
+#> 
+#> attr(,"class")
+#> [1] "symbolic_units"
 ```
 
 ## Planned Extensions and Revisions
