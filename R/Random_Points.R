@@ -7,12 +7,12 @@
 #' @returns        An `sf` object of random points
 #' @export
 #'
-#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples       my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                 my_grid <- create_hex_grid(my_data, 500)
 #'
 #'                 random_points(my_grid, 11, 20)
 #'
-#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples       my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                 my_grid <- create_hex_grid(my_data, 500)
 #'
 #'                 random_points(hex_grid = my_grid, hex_id = 15, n_points = 25)
@@ -38,14 +38,14 @@ random_points <- function(hex_grid, hex_id, n_points) {
 #' @returns             A plot showing random points over clipped SWF polygons
 #' @export
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 11, 20)
 #'
 #'                      plot_random_points(my_grid, data_clip, 11, my_points)
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 15, 25)
