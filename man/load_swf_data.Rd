@@ -3,6 +3,10 @@
 \name{load_swf_data}
 \alias{load_swf_data}
 \title{Function 1: Loading in the SWF data}
+\source{
+\if{html}{\out{<div class="sourceCode">}}\preformatted{  COPERNICUS LAND MONITORING SERVICE (2018): High Resolution Layer Small Woody Features.URL:https://land.copernicus.eu/en/products/high-resolution-layer-small-woody-features.
+}\if{html}{\out{</div>}}
+}
 \usage{
 load_swf_data(path)
 }
@@ -10,12 +14,15 @@ load_swf_data(path)
 \item{path}{Character. Path to the SWF raster file (.tif)}
 }
 \value{
-An \code{sf} object with hedge/SWF polygons
+\if{html}{\out{<div class="sourceCode">}}\preformatted{ An `sf` object with hedge/SWF polygons
+}\if{html}{\out{</div>}}
 }
 \description{
-Function 1: Loading in the SWF data
+Data from the SWF Layer from Copernicus
 }
 \examples{
-  load_swf_data("your/individual/path/file.tif")
-  load_swf_data(path = "your/individual/path/file.tif")
+    load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+
+    load_swf_data(path = "inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+
 }

@@ -21,6 +21,13 @@ clip_swf_to_hex(swf_sf, hex_grid, hex_id)
 Function 6: Clipping the SWF data to the extent of one selected hexagon
 }
 \examples{
-      clip_swf_to_hex("my_data", "my_grid", "11")
-      clip_swf_to_hex(swf_sf = "my_data", hex_grid = "my_grid", hex_id = "15")
+      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                my_grid <- create_hex_grid(my_data, 500)
+
+                clip_swf_to_hex(my_data, my_grid, 11)
+
+      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                my_grid <- create_hex_grid(my_data, 500)
+
+                clip_swf_to_hex(swf_sf = my_data, hex_grid = my_grid, hex_id = 15)
 }

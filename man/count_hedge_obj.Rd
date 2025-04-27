@@ -21,6 +21,15 @@ count_hedge_obj(swf_clipped, hex_grid, hex_id)
 Function 11: Counting the hedge/SWF objects in one selected hexagon
 }
 \examples{
-         count_hedge_obj("data_clip", "my_grid", "11")
-         count_hedge_obj(swf_clipped = "data_clip", hex_grid = "my_grid", hex_id = "15")
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                   my_grid <- create_hex_grid(my_data, 500)
+                   data_clip <- swf_grid(my_data, my_grid)
+
+                   count_hedge_obj(data_clip, my_grid, 11)
+
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                   my_grid <- create_hex_grid(my_data, 500)
+                   data_clip <- swf_grid(my_data, my_grid)
+
+                   count_hedge_obj(swf_clipped = data_clip, hex_grid = my_grid, hex_id = 15)
 }

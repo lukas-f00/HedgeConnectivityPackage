@@ -23,6 +23,17 @@ plot_random_points(hex_grid, swf_clipped, hex_id, random_points)
 Function 9: Plotting random points over clipped SWF data
 }
 \examples{
-           plot_random_points("my_grid", "data_clip", "11", "my_points")
-           plot_random_points(hex_grid = "my_grid", swf_clipped = "data_clip", hex_id = "11", random_points = "my_points")
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                     my_grid <- create_hex_grid(my_data, 500)
+                     data_clip <- swf_grid(my_data, my_grid)
+                     my_points <- random_points(my_grid, 11, 20)
+
+                     plot_random_points(my_grid, data_clip, 11, my_points)
+
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                     my_grid <- create_hex_grid(my_data, 500)
+                     data_clip <- swf_grid(my_data, my_grid)
+                     my_points <- random_points(my_grid, 15, 25)
+
+                     plot_random_points(hex_grid = my_grid, swf_clipped = data_clip, hex_id = 15, random_points = my_points)
 }

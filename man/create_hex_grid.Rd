@@ -19,6 +19,11 @@ create_hex_grid(swf_sf, diameter)
 Function 2: Creating a hexagon grid
 }
 \examples{
-     create_hex_grid("my_data", "500")
-     create_hex_grid(swf_sf = "my_data", diameter = "500")
+     my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+
+               create_hex_grid(my_data, 500)
+
+     my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+
+               create_hex_grid(swf_sf = my_data, diameter = 500)
 }

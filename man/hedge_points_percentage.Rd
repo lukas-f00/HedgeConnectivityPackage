@@ -23,6 +23,17 @@ hedge_points_percentage(swf_clipped, random_points, hex_grid, hex_id)
 Function 12: Calculating the percentage of the random points, that lay within hedge/SWF objects
 }
 \examples{
-           hedge_point_percentage("data_clip", "my_points", "my_grid", "11")
-           hedge_point_percentage(swf_clipped = "data_clip", random_points = "my_points", hex_grid = "my_grid", hex_id = "15")
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                     my_grid <- create_hex_grid(my_data, 500)
+                     data_clip <- swf_grid(my_data, my_grid)
+                     my_points <- random_points(my_grid, 11, 20)
+
+                     hedge_points_percentage(data_clip, my_points, my_grid, 11)
+
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                     my_grid <- create_hex_grid(my_data, 500)
+                     data_clip <- swf_grid(my_data, my_grid)
+                     my_points <- random_points(my_grid, 15, 25)
+
+                     hedge_points_percentage(swf_clipped = data_clip, random_points = my_points, hex_grid = my_grid, hex_id = 15)
 }

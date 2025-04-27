@@ -21,6 +21,15 @@ plot_swf_hex(hex_grid, swf_clipped, hex_id)
 Function 7: Plotting the clipped SWF data with the corresponding hexagon
 }
 \examples{
-         plot_swf_hex("my_grid", "data_clip", "11")
-         plot_swf_hex(hex_grid = "my_grid", swf_clip = "data_clip", hex_id = "11")
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                   my_grid <- create_hex_grid(my_data, 500)
+                   data_clip <- swf_grid(my_data, my_grid)
+
+                   plot_swf_hex(my_grid, data_clip, 11)
+
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+                   my_grid <- create_hex_grid(my_data, 500)
+                   data_clip <- swf_grid(my_data, my_grid)
+
+                   plot_swf_hex(hex_grid = my_grid, swf_clipped = data_clip, hex_id = 15)
 }
