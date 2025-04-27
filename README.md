@@ -11,7 +11,7 @@ functions to calculate connectivity metrics for hedges / Small Woody
 Features (SWF), and to generate clear visualizations. This package is
 intended to support ecological landscape analysis, habitat connectivity
 studies, and conservation planning. The terms “hedge” and “Small Woody
-Features” are used synonymously throughout the package.
+Features” (SWF) are used synonymously throughout the package.
 
 ## Features
 
