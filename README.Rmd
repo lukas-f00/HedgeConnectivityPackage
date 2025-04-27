@@ -32,7 +32,7 @@ The terms "hedge" and "Small Woody Features" (SWF) are used synonymously through
 
 ## Installation
 
-You can install the development version of HedgeConnectivityPackage from GitHub using:
+You can install the development version of the HedgeConnectivityPackage from GitHub using:
 
 ``` r
 # Install devtools if you haven't yet
@@ -62,7 +62,7 @@ devtools::install_github("lukas-f00/HedgeConnectivityPackage")
 
 ## Example data
 
-The included example data is from the High Resolution Layer Small Woody Features from the Copernicus Land Monitoring Service
+The included example data is from the High Resolution Layer Small Woody Features from the Copernicus Land Monitoring Service.
 
 bibentry(
   bibtype      = "Misc",
@@ -185,7 +185,7 @@ distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
 
 ```
 
-And, focusing back on the hedges, you can calculate the mean, min, max distance between hedge patches to their x nearest neighbors
+And, focusing back on the hedges, you can calculate the mean, min, max distance between hedge patches to their x nearest neighbors.
 
 ```{r hedges nearest neighbour}
 
@@ -193,7 +193,7 @@ hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
 
 ```
 
-## Planned Extensions and Revisions
+## Planned Revisions and Extensions
 
 ## Revisions
 
@@ -220,8 +220,12 @@ hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
 | Conclusive Index | Creating a overall connectivity index for hedges (but only if feasible and sensible) |
 | Other packages | Integrating other packages (i.e. landscapemetrcis) |
 | Tests | Integrating tests (i.e. with testthis()) |
- 
 
+## Current Bugs and Problem
+At the moment, the examples within the roxygen skeleton of the R scripts don't fully work, as the SWF data is way too big when clipped to one hexagon. 
+But the examples from this readme file work fine.
+
+## Contribution
 
 Thank you for using the HedgeConnectivityPackage!
-If you find a bug or want to suggest an improvement, feel free to open an issue or pull request on GitHub. Also if you want to contribute towards the package, also feel free to contact me! :)
+If you find a bug or want to suggest an improvement, feel free to open an issue or pull request on GitHub. Also if you want to contribute towards the package, feel free to contact me! :)

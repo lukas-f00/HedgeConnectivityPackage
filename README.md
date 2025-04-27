@@ -23,8 +23,8 @@ Features” (SWF) are used synonymously throughout the package.
 
 ## Installation
 
-You can install the development version of HedgeConnectivityPackage from
-GitHub using:
+You can install the development version of the HedgeConnectivityPackage
+from GitHub using:
 
 ``` r
 # Install devtools if you haven't yet
@@ -56,7 +56,7 @@ devtools::install_github("lukas-f00/HedgeConnectivityPackage")
 ## Example data
 
 The included example data is from the High Resolution Layer Small Woody
-Features from the Copernicus Land Monitoring Service
+Features from the Copernicus Land Monitoring Service.
 
 bibentry( bibtype = “Misc”, title = “High Resolution Layer Small Woody
 Features”, author = “COPERNICUS LAND MONITORING SERVICE”, year = “2018”,
@@ -198,18 +198,18 @@ points to the nearest hedge.
 distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
 #> Hexagon 11:
 #> Points outside of hedge objects:
-#>   Avg. distance to closest hedge: 76.47 m
-#>   Min. distance to closest hedge: 2.37 m
-#>   Max. distance to closest hedge: 173.81 m
+#>   Avg. distance to closest hedge: 86.32 m
+#>   Min. distance to closest hedge: 4.88 m
+#>   Max. distance to closest hedge: 166.33 m
 #> $outside_points
 #> $outside_points$mean
-#> [1] 76.47261
+#> [1] 86.31869
 #> 
 #> $outside_points$min
-#> [1] 2.369802
+#> [1] 4.88466
 #> 
 #> $outside_points$max
-#> [1] 173.8084
+#> [1] 166.3331
 #> 
 #> 
 #> $units
@@ -224,7 +224,7 @@ distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
 ```
 
 And, focusing back on the hedges, you can calculate the mean, min, max
-distance between hedge patches to their x nearest neighbors
+distance between hedge patches to their x nearest neighbors.
 
 ``` r
 
@@ -255,7 +255,7 @@ hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
 #> [1] "symbolic_units"
 ```
 
-## Planned Extensions and Revisions
+## Planned Revisions and Extensions
 
 ## Revisions
 
@@ -283,7 +283,15 @@ hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
 | Other packages | Integrating other packages (i.e. landscapemetrcis) |
 | Tests | Integrating tests (i.e. with testthis()) |
 
+## Current Bugs and Problem
+
+At the moment, the examples within the roxygen skeleton of the R scripts
+don’t fully work, as the SWF data is way too big when clipped to one
+hexagon. But the examples from this readme file work fine.
+
+## Contribution
+
 Thank you for using the HedgeConnectivityPackage! If you find a bug or
 want to suggest an improvement, feel free to open an issue or pull
 request on GitHub. Also if you want to contribute towards the package,
-also feel free to contact me! :)
+feel free to contact me! :)
