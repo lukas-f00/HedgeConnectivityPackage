@@ -1,12 +1,18 @@
 #' Function 1: Loading in the SWF data
 #'
-#' @param path Character. Path to the SWF raster file (.tif)
+#' @param path   Character. Path to the SWF raster file (.tif)
 #'
-#' @returns    An `sf` object with hedge/SWF polygons
+#' @returns      An `sf` object with hedge/SWF polygons
 #' @export
 #'
-#' @examples   load_swf_data("your/individual/path/file.tif")
-#' @examples   load_swf_data(path = "your/individual/path/file.tif")
+#' @examples     load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'
+#' @examples     load_swf_data(path = "inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'
+#' @description  Data from the SWF Layer from Copernicus
+#'
+#' @source       COPERNICUS LAND MONITORING SERVICE (2018): High Resolution Layer Small Woody Features.URL:https://land.copernicus.eu/en/products/high-resolution-layer-small-woody-features.
+#'
 
 
 load_swf_data <- function(path) {
@@ -27,8 +33,13 @@ load_swf_data <- function(path) {
 #' @returns        An `sf` object containing the hexagon grid with assigned IDs
 #' @export
 #'
-#' @examples      create_hex_grid("my_data", "500")
-#' @examples      create_hex_grid(swf_sf = "my_data", diameter = "500")
+#' @examples      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'
+#'                create_hex_grid(my_data, 500)
+#'
+#' @examples      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'
+#'                create_hex_grid(swf_sf = my_data, diameter = 500)
 
 
 create_hex_grid <- function(swf_sf, diameter) {
@@ -53,8 +64,15 @@ create_hex_grid <- function(swf_sf, diameter) {
 #' @returns        An plot showing the hexagons labeled by ID
 #' @export
 #'
-#' @examples       plot_hex_ids("my_grid")
-#' @examples       plot_hex_ids(hex_grid = "my_grid")
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 plot_hex_ids(my_grid)
+#'
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 plot_hex_ids(hex_grid = my_grid)
 
 
 plot_hex_ids <- function(hex_grid) {
@@ -75,8 +93,15 @@ plot_hex_ids <- function(hex_grid) {
 #' @returns        An `sf` object of clipped SWF data
 #' @export
 #'
-#' @examples       swf_grid("my_data", "my_grid")
-#' @examples       swf_grid(swf_sf = "my_data", hex_grid = "my_grid")
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 swf_grid(my_data, my_grid)
+#'
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 swf_grid(swf_sf = my_data, hex_grid = my_grid)
 
 
 swf_grid <- function(swf_sf, hex_grid) {
@@ -95,10 +120,20 @@ swf_grid <- function(swf_sf, hex_grid) {
 #' @returns           A plot showing the SWF data and hexagon grid
 #' @export
 #'
-#' @examples          plot_swf_grid("my_grid", "data_clip")
-#' @examples          plot_swf_grid(hex_grid = "my_grid", swf_clipped = "data_clip")
+#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                    my_grid <- create_hex_grid(my_data, 500)
+#'                    data_clip <- swf_grid(my_data, my_grid)
+#'
+#'                    plot_swf_grid(my_grid, data_clip)
+#'
+#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                    my_grid <- create_hex_grid(my_data, 500)
+#'                    data_clip <- swf_grid(my_data, my_grid)
+#'
+#'                    plot_swf_grid(hex_grid = my_grid, swf_clipped = data_clip)
 
 
+# This plot takes a while, even if the console suggests, that the process is finished
 plot_swf_grid <- function(hex_grid, swf_clipped) {
   # Plotting the hexgon grid with the SWF data on top
   plot(sf::st_geometry(hex_grid), border = "grey", main = "Hexagon grid over hedge data")
@@ -116,8 +151,15 @@ plot_swf_grid <- function(hex_grid, swf_clipped) {
 #' @returns        An `sf` object of SWF polygons inside the selected hexagon
 #' @export
 #'
-#' @examples       clip_swf_to_hex("my_data", "my_grid", "11")
-#' @examples       clip_swf_to_hex(swf_sf = "my_data", hex_grid = "my_grid", hex_id = "15")
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 clip_swf_to_hex(my_data, my_grid, 11)
+#'
+#' @examples       my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                 my_grid <- create_hex_grid(my_data, 500)
+#'
+#'                 clip_swf_to_hex(swf_sf = my_data, hex_grid = my_grid, hex_id = 15)
 
 
 clip_swf_to_hex <- function(swf_sf, hex_grid, hex_id) {
@@ -138,8 +180,17 @@ clip_swf_to_hex <- function(swf_sf, hex_grid, hex_id) {
 #' @returns           A plot showing the SWF polygons inside a hexagon
 #' @export
 #'
-#' @examples          plot_swf_hex("my_grid", "data_clip", "11")
-#' @examples          plot_swf_hex(hex_grid = "my_grid", swf_clip = "data_clip", hex_id = "11")
+#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                    my_grid <- create_hex_grid(my_data, 500)
+#'                    data_clip <- swf_grid(my_data, my_grid)
+#'
+#'                    plot_swf_hex(my_grid, data_clip, 11)
+#'
+#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+#'                    my_grid <- create_hex_grid(my_data, 500)
+#'                    data_clip <- swf_grid(my_data, my_grid)
+#'
+#'                    plot_swf_hex(hex_grid = my_grid, swf_clipped = data_clip, hex_id = 15)
 
 
 plot_swf_hex <- function(hex_grid, swf_clipped, hex_id) {
