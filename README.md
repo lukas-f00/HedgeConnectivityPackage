@@ -53,6 +53,19 @@ devtools::install_github("lukas-f00/HedgeConnectivityPackage")
 | 13 | distance_to_nearest_hedge | Calculate mean, min, max distance from points outside hedges to nearest hedge |
 | 14 | hedges_nn | Calculate mean, min, max distance between hedge/SWF objects to their x nearest neighbors |
 
+## Example data
+
+The included example data is from the High Resolution Layer Small Woody
+Features from the Copernicus Land Monitoring Service
+
+bibentry( bibtype = “Misc”, title = “High Resolution Layer Small Woody
+Features”, author = “COPERNICUS LAND MONITORING SERVICE”, year = “2018”,
+datatype = “.tif”, access date = “07.04.2025”, note = “Data included in
+the HedgeConnectivityPackage R package
+(inst/extdata/HRL_Small_Woody_Features_2018_005m.tif)”, url =
+“<https://land.copernicus.eu/en/products/high-resolution-layer-small-woody-features>?”,
+data policy = “<https://land.copernicus.eu/en/data-policy>” )
+
 ## Example
 
 The first step is to load in your function and data and convert the data
@@ -62,7 +75,7 @@ to an sf-polygon object.
 
 #library(HedgeConnectivityPackage)
 
-#swf <- load_swf_data("path/to/your/swf_data.tif")
+#swf <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif.tif")
 ```
 
 Now you can create a hexagon grid with a selectable diameter,
