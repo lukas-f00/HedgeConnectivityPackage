@@ -95,7 +95,7 @@ plot_hex_ids(hex_grid)
 #> Warning: st_centroid assumes attributes are constant over geometries
 ```
 
-<img src="man/figures/README-hexagon grid plot-1.png" width="100%" />
+<img src="man/figures/README-plot_hex_ids-1.png" width="100%" />
 
 If you’re happy with the grid, you can then clip your data with it.
 
@@ -112,7 +112,7 @@ with the grid.
 plot_swf_grid(hex_grid, swf_clipped)
 ```
 
-<img src="man/figures/README-grid clip plot-1.png" width="100%" />
+<img src="man/figures/README-plot_swf_grid-1.png" width="100%" />
 
 Now you can select a individual hexagon to analyze and work with.
 
@@ -131,7 +131,7 @@ you can plot it now.
 plot_swf_hex(hex_grid, swf_hex, hex_id = 11)
 ```
 
-<img src="man/figures/README-plot hexagon-1.png" width="100%" />
+<img src="man/figures/README-plot_swf_hex-1.png" width="100%" />
 
 For more statistical analysis, you can create random points over one
 selected hexagon.
@@ -149,9 +149,9 @@ hexagon and data.
 plot_random_points(hex_grid, swf_hex, hex_id = 11, random_pts)
 ```
 
-<img src="man/figures/README-plot random points-1.png" width="100%" />
+<img src="man/figures/README-plot_random_points-1.png" width="100%" />
 
-For the statistical side of thing, you can start by calculating the
+For the statistical side of things, you can start by calculating the
 hedge area in total area and as percantage towards the hexagon area.
 
 ``` r
@@ -185,8 +185,8 @@ that fall within hedge objects.
 ``` r
 
 hedge_points_percentage(swf_hex, random_pts, hex_grid, hex_id = 11)
-#> [1] "Hexagon 11 percentage of points within hedge objects: 5 %"
-#> [1] 0.05
+#> [1] "Hexagon 11 percentage of points within hedge objects: 0 %"
+#> [1] 0
 ```
 
 You now know how many points lay outside of the hedges. Following this,
@@ -198,18 +198,18 @@ points to the nearest hedge.
 distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
 #> Hexagon 11:
 #> Points outside of hedge objects:
-#>   Avg. distance to closest hedge: 86.32 m
-#>   Min. distance to closest hedge: 4.88 m
-#>   Max. distance to closest hedge: 166.33 m
+#>   Avg. distance to closest hedge: 85.32 m
+#>   Min. distance to closest hedge: 4.29 m
+#>   Max. distance to closest hedge: 183.62 m
 #> $outside_points
 #> $outside_points$mean
-#> [1] 86.31869
+#> [1] 85.32434
 #> 
 #> $outside_points$min
-#> [1] 4.88466
+#> [1] 4.291185
 #> 
 #> $outside_points$max
-#> [1] 166.3331
+#> [1] 183.6171
 #> 
 #> 
 #> $units
