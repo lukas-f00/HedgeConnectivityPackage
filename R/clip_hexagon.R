@@ -135,7 +135,6 @@ swf_grid <- function(swf_sf, hex_grid) {
 #'                    plot_swf_grid(hex_grid = my_grid, swf_clipped = data_clip)
 
 
-# This plot takes a while, even if the console suggests, that the process is finished
 plot_swf_grid <- function(hex_grid, swf_clipped) {
   # Plotting the hexgon grid with the SWF data on top
   plot(sf::st_geometry(hex_grid), border = "grey", main = "Hexagon grid over hedge data")
