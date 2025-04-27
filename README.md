@@ -63,7 +63,7 @@ Features”, author = “COPERNICUS LAND MONITORING SERVICE”, year = “2018�
 datatype = “.tif”, access date = “07.04.2025”, note = “Data included in
 the HedgeConnectivityPackage R package
 (inst/extdata/HRL_Small_Woody_Features_2018_005m.tif)”, url =
-“<https://land.copernicus.eu/en/products/high-resolution-layer-small-woody-features>?”,
+“<https://land.copernicus.eu/en/products/high-resolution-layer-small-woody-features>”,
 data policy = “<https://land.copernicus.eu/en/data-policy>” )
 
 ## Example
