@@ -12,6 +12,8 @@ load_swf_data(path, CRS)
 }
 \arguments{
 \item{path}{Character. Path to the SWF raster file (.tif)}
+
+\item{CRS}{Numeric. EPSG code defining the target Coordinate Reference System (e.g., 3035 for ETRS89 / LAEA Europe).}
 }
 \value{
 \if{html}{\out{<div class="sourceCode">}}\preformatted{ An `sf` object with hedge/SWF polygons
