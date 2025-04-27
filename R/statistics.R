@@ -7,13 +7,13 @@
 #' @returns           A list with total hedge area and area ratio
 #' @export
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
 #'                    hedge_area(data_clip, my_grid, 11)
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
@@ -50,13 +50,13 @@ hedge_area <- function(swf_clipped, hex_grid, hex_id) {
 #' @returns           Integer. Number of distinct hedge/SWF patches
 #' @export
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
 #'                    count_hedge_obj(data_clip, my_grid, 11)
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
@@ -97,14 +97,14 @@ count_hedge_obj <- function(swf_clipped, hex_grid, hex_id) {
 #' @returns             Numeric. Percentage of random points inside hedge/SWF polygons
 #' @export
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 11, 20)
 #'
 #'                      hedge_points_percentage(data_clip, my_points, my_grid, 11)
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 15, 25)
@@ -138,14 +138,14 @@ hedge_points_percentage <- function(swf_clipped, random_points, hex_grid, hex_id
 #' @returns             A list with mean, min and max distances for points outside of hedges
 #' @export
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 11, 20)
 #'
 #'                      distance_to_nearest_hedge(data_clip, my_points, my_grid, 11)
 #'
-#' @examples            my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples            my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                      my_grid <- create_hex_grid(my_data, 500)
 #'                      data_clip <- swf_grid(my_data, my_grid)
 #'                      my_points <- random_points(my_grid, 15, 25)
@@ -206,13 +206,13 @@ distance_to_nearest_hedge <- function(swf_clipped, random_points, hex_grid, hex_
 #' @returns           A list with mean, min, and max distances to the x nearest neighbor
 #' @export
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
 #'                    hedges_nn(data_clip, my_grid, 11, 2)
 #'
-#' @examples          my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+#' @examples          my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 #'                    my_grid <- create_hex_grid(my_data, 500)
 #'                    data_clip <- swf_grid(my_data, my_grid)
 #'
