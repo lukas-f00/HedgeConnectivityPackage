@@ -21,8 +21,8 @@ load_swf_data(path, CRS)
 Data from the SWF Layer from Copernicus
 }
 \examples{
-    load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+    load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
 
-    load_swf_data(path = "inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", CRS = 3035)
+    load_swf_data(path = system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), CRS = 3035)
 
 }

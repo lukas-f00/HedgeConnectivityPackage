@@ -21,12 +21,12 @@ random_points(hex_grid, hex_id, n_points)
 Function 8: Creating random points
 }
 \examples{
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+      my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 random_points(my_grid, 11, 20)
 
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+      my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 random_points(hex_grid = my_grid, hex_id = 15, n_points = 25)

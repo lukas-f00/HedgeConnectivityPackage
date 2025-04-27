@@ -21,13 +21,13 @@ hedge_area(swf_clipped, hex_grid, hex_id)
 Function 10: Calculating the hedge area in one selected hexagon
 }
 \examples{
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+         my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 
                    hedge_area(data_clip, my_grid, 11)
 
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+         my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 

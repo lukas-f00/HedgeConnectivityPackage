@@ -23,13 +23,13 @@ hedges_nn(swf_clipped, hex_grid, hex_id, nn)
 Function 14: Calculating the mean, min & max distance from all hedge/SWF objects to their x nearest neighbour
 }
 \examples{
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+         my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 
                    hedges_nn(data_clip, my_grid, 11, 2)
 
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+         my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 

@@ -17,12 +17,12 @@ plot_hex_ids(hex_grid)
 Function 3: Plotting the hexagon grid with IDs
 }
 \examples{
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+      my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 plot_hex_ids(my_grid)
 
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
+      my_data <- load_swf_data(system.file("extdata", "HRL_Small_Woody_Features_2018_005m.tif", package = "HedgeConnectivityPackage"), 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 plot_hex_ids(hex_grid = my_grid)
