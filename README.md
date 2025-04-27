@@ -73,9 +73,9 @@ to an sf-polygon object.
 
 ``` r
 
-#library(HedgeConnectivityPackage)
+# library(HedgeConnectivityPackage)
 
-#swf <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif.tif")
+# swf <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif.tif", 3035)
 ```
 
 Now you can create a hexagon grid with a selectable diameter,
@@ -83,7 +83,7 @@ consecutive IDs and the extent of your data.
 
 ``` r
 
-#hex_grid <- create_hex_grid(swf, diameter = 500)
+# hex_grid <- create_hex_grid(swf, diameter = 500)
 ```
 
 If you want to inspect your grid and check for the IDs, you can plot the
@@ -91,14 +91,14 @@ grid with the according IDs.
 
 ``` r
 
-#plot_hex_ids(hex_grid)
+# plot_hex_ids(hex_grid)
 ```
 
 If you’re happy with the grid, you can then clip your data with it.
 
 ``` r
 
-#swf_clipped <- swf_grid(swf, hex_grid)
+# swf_clipped <- swf_grid(swf, hex_grid)
 ```
 
 To see the outcome of your clip, you can plot your clipped data together
@@ -106,14 +106,14 @@ with the grid.
 
 ``` r
 
-#plot_swf_grid(hex_grid, swf_clipped)
+# plot_swf_grid(hex_grid, swf_clipped)
 ```
 
 Now you can select a individual hexagon to analyze and work with.
 
 ``` r
 
-#swf_hex <- clip_swf_to_hex(swf, hex_grid, hex_id = 11)
+# swf_hex <- clip_swf_to_hex(swf, hex_grid, hex_id = 11)
 ```
 
 To check and investigate your chosen hexagon and the clipped data in it,
@@ -121,7 +121,7 @@ you can plot it now.
 
 ``` r
 
-#plot_swf_hex(hex_grid, swf_hex, hex_id = 11)
+# plot_swf_hex(hex_grid, swf_hex, hex_id = 11)
 ```
 
 For more statistical analysis, you can create random points over one
@@ -129,7 +129,7 @@ selected hexagon.
 
 ``` r
 
-#random_pts <- random_points(hex_grid, hex_id = 11, n_points = 100)
+# random_pts <- random_points(hex_grid, hex_id = 11, n_points = 20)
 ```
 
 You can also visualize your created random points together with your
@@ -137,7 +137,7 @@ hexagon and data.
 
 ``` r
 
-#plot_random_points(hex_grid, swf_hex, hex_id = 11, random_pts)
+# plot_random_points(hex_grid, swf_hex, hex_id = 11, random_pts)
 ```
 
 For the statistical side of thing, you can start by calculating the
@@ -145,7 +145,7 @@ hedge area in total area and as percantage towards the hexagon area.
 
 ``` r
 
-#hedge_area(hex_grid, swf_hex, hex_id = 11)
+# hedge_area(swf_hex, hex_grid, hex_id = 11)
 ```
 
 After this you can calculate the number of hedge/SWF objects in your
@@ -153,7 +153,7 @@ polygon.
 
 ``` r
 
-#count_hedge_obj(hex_grid, swf_hex, hex_id = 11)
+# count_hedge_obj(swf_hex, hex_grid, hex_id = 11)
 ```
 
 You can now use the crated random points for some analysis. With the
@@ -162,7 +162,7 @@ that fall within hedge objects.
 
 ``` r
 
-#hedge_points_percentage(hex_grid, swf_hex, random_pts, hex_id = 11)
+# hedge_points_percentage(swf_hex, random_pts, hex_grid, hex_id = 11)
 ```
 
 You now know how many points lay outside of the hedges. Following this,
@@ -171,7 +171,7 @@ points to the nearest hedge.
 
 ``` r
 
-#distance_to_nearest_hedge( hex_grid, swf_hex, random_pts, hex_id = 11)
+# distance_to_nearest_hedge(swf_hex, random_pts, hex_grid, hex_id = 11)
 ```
 
 And, focusing back on the hedges, you can calculate the mean, min, max
@@ -179,7 +179,7 @@ distance between hedge patches to their x nearest neighbors
 
 ``` r
 
-#hedges_nn(hex_grid, swf_hex, hex_id = 11, nn = 3)
+# hedges_nn(swf_hex, hex_grid, hex_id = 11, nn = 3)
 ```
 
 ## Planned Extensions and Revisions
