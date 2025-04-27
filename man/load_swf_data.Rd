@@ -8,7 +8,7 @@
 }\if{html}{\out{</div>}}
 }
 \usage{
-load_swf_data(path)
+load_swf_data(path, CRS)
 }
 \arguments{
 \item{path}{Character. Path to the SWF raster file (.tif)}
@@ -21,8 +21,8 @@ load_swf_data(path)
 Data from the SWF Layer from Copernicus
 }
 \examples{
-    load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+    load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
 
-    load_swf_data(path = "inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+    load_swf_data(path = "inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", CRS = 3035)
 
 }

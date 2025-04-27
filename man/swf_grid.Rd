@@ -19,12 +19,12 @@ swf_grid(swf_sf, hex_grid)
 Function 4: Clipping the whole SWF data with the hexagon grid
 }
 \examples{
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 swf_grid(my_data, my_grid)
 
-      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+      my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                 my_grid <- create_hex_grid(my_data, 500)
 
                 swf_grid(swf_sf = my_data, hex_grid = my_grid)

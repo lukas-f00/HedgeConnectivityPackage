@@ -19,13 +19,13 @@ plot_swf_grid(hex_grid, swf_clipped)
 Function 5: Plotting the whole clipped SWF data with the hexagon grid
 }
 \examples{
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 
                    plot_swf_grid(my_grid, data_clip)
 
-         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+         my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                    my_grid <- create_hex_grid(my_data, 500)
                    data_clip <- swf_grid(my_data, my_grid)
 

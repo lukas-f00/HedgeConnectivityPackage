@@ -23,14 +23,14 @@ distance_to_nearest_hedge(swf_clipped, random_points, hex_grid, hex_id)
 Function 13: Calculating the mean, min, max distance from all points outside of hedge/SWF objects to the closest hedge/SWF object
 }
 \examples{
-           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                      my_grid <- create_hex_grid(my_data, 500)
                      data_clip <- swf_grid(my_data, my_grid)
                      my_points <- random_points(my_grid, 11, 20)
 
                      distance_to_nearest_hedge(data_clip, my_points, my_grid, 11)
 
-           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif")
+           my_data <- load_swf_data("inst/extdata/HRL_Small_Woody_Features_2018_005m.tif", 3035)
                      my_grid <- create_hex_grid(my_data, 500)
                      data_clip <- swf_grid(my_data, my_grid)
                      my_points <- random_points(my_grid, 15, 25)
